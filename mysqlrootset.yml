@@ -1,0 +1,3 @@
+---
+- name: Sets the root password 
+   mysql_user: user=root password="jackie@123" host=localhost

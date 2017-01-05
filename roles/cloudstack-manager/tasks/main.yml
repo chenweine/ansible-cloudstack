@@ -1,0 +1,7 @@
+---
+- name: Ensure the Apache Cloudstack Repo file exists as per template
+  template: src=/etc/ansible/roles/cloudstack-manager/templates/cloudstack.repo.j2 dest=/etc/yum.repos.d/cloudstack.repo
+- name: Ensure CloudStack packages are installed
+  yum: name=cloudstack-management state=present
+- name: Ensure vhdutil is in correct location
+  copy: src=/etc/ansible/roles/cloudstack-manager/templates/vhd-util dest=/usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver/vhd-util mode=0755
